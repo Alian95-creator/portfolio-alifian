@@ -1,6 +1,5 @@
 import { useState } from "react";
 import profileImg from "../assets/profile.png";
-import SmokeCanvas from "./SmokeCanvas";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
