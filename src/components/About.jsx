@@ -13,7 +13,7 @@ export default function About() {
       whileHover={{ scale: 1.08, rotate: -3 }}
       className="border border-white/10 p-2 rounded-2xl glow-card"
     >
-      <img src="/src/assets/profile.png" className="rounded-xl" />
+      <img src="/public/profile.png" className="rounded-xl" />
     </motion.div>
 
     {/* TEXT */}
