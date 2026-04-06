@@ -1,26 +1,38 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
 function App() {
+  // Smooth scroll for all anchor links
+  useEffect(() => {
+    const handleAnchorClick = (e) => {
+      const target = e.target;
+      if (target.tagName === "A" && target.hash) {
+        const element = document.querySelector(target.hash);
+        if (element) {
+          e.preventDefault();
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+    document.addEventListener("click", handleAnchorClick);
+
+    return () => {
+      document.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
-      className="font-sans text-gray-900 bg-[#020617]"
-    >
+    <div className="scroll-smooth">
       <Navbar />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
-    </motion.div>
+      <main>
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+    </div>
   );
 }
 
