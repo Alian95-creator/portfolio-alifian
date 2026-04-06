@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import ProjectModal from "./ProjectModal";
+
 
 const projects = [
   {
@@ -38,22 +40,37 @@ export default function Projects() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section id="projects" className="p-10">
-      <h2 className="text-3xl text-center mb-10">Projects</h2>
+    <section id="projects" className="p-10 pt-24">
+      <h2 className="text-3xl text-center mb-10 glow-text">Projects</h2>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="grid md:grid-cols-3 gap-6"
+      >
         {projects.map((p, i) => (
-          <div key={i} className="bg-[#1a1a1a] p-5 rounded-xl hover:scale-105 transition">
-            <h3 className="text-lg mb-3">{p.name}</h3>
-            <button onClick={() => setSelected(p)} className="text-[#8b7d7b] underline">
-              Detail
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-[#1a1a1a] p-6 rounded-2xl glow-card cursor-pointer transition"
+          >
+            <h3 className="text-lg mb-2">{p.name}</h3>
+
+            <button
+              onClick={() => setSelected(p)}
+              className="text-[#8b7d7b] text-sm hover:underline"
+            >
+              View Details →
             </button>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {selected && (
-        <ProjectModal project={selected} close={() => setSelected(null)} />
+        <ProjectModal
+          project={selected}
+          close={() => setSelected(null)}
+        />
       )}
     </section>
   );
