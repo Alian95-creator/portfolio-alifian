@@ -7,29 +7,27 @@ export default function ProjectModal({ project, close }) {
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.3 }}
         className="bg-[#1a1a1a] p-6 rounded-2xl max-w-md w-full glow-card"
       >
+
+        <img
+          src={project.image}
+          className="w-full h-48 object-cover rounded-xl mb-4"
+        />
+
         <h2 className="text-xl mb-3 glow-text">{project.name}</h2>
 
         <p className="text-gray-400 mb-4">{project.desc}</p>
 
-        <a
-          href={project.link}
-          target="_blank"
-          className="text-[#8b7d7b] underline"
-        >
+        <a href={project.link} target="_blank" className="text-[#8b7d7b] underline">
           Visit Project
         </a>
 
-        <button
-          onClick={close}
-          className="block mt-5 text-red-400 hover:opacity-70"
-        >
+        <button onClick={close} className="block mt-4 text-red-400">
           Close
         </button>
-      </motion.div>
 
+      </motion.div>
     </div>
   );
 }
