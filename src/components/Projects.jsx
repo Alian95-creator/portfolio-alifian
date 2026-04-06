@@ -7,32 +7,38 @@ const projects = [
   {
     name: "Movie Explorer App",
     link: "https://alian95-creator.github.io/movie-explorer/",
-    desc: "Movie search application using external API with dynamic UI rendering."
+    desc: "Movie search application using external API with dynamic UI rendering.",
+    image: "/portfolio-alifian/projects/movie.png"
   },
   {
     name: "Dynamic Product Store",
     link: "https://alian95-creator.github.io/Repository-name-dynamic-product-store/",
-    desc: "E-commerce interface with cart functionality and dynamic product handling."
+    desc: "E-commerce interface with cart functionality.",
+    image: "/portfolio-alifian/projects/store.png"
   },
   {
     name: "Winter Weather App",
     link: "https://alian95-creator.github.io/winter-dashboard/",
-    desc: "Weather dashboard integrating API data with responsive UI."
+    desc: "Weather dashboard integrating API data.",
+    image: "/portfolio-alifian/projects/weather.png"
   },
   {
     name: "Mochihamuya Hamster",
     link: "https://alian95-creator.github.io/website-mochihamuya-hamster/",
-    desc: "Creative themed static website with aesthetic UI."
+    desc: "Creative themed static website.",
+    image: "/portfolio-alifian/projects/hamster.png"
   },
   {
     name: "Startup Login V3",
     link: "https://alian95-creator.github.io/Startup-Login-Signup/",
-    desc: "Modern login and signup interface design."
+    desc: "Modern login and signup UI.",
+    image: "/portfolio-alifian/projects/login.png"
   },
   {
     name: "Law Office Website",
     link: "https://alian95-creator.github.io/website-advokad-surabaya/",
-    desc: "Professional company profile website for legal services."
+    desc: "Professional legal company profile.",
+    image: "/portfolio-alifian/projects/law.png"
   }
 ];
 
