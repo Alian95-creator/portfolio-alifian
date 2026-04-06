@@ -1,5 +1,5 @@
 import { useState } from "react";
-import profile from "../assets/profile.jpg";
+import profile from "../assets/profile.png";
 
 export default function About() {
   const [zoom, setZoom] = useState(false);
