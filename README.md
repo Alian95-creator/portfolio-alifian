@@ -1,16 +1,85 @@
-# React + Vite
+# 🚀 Portfolio Alifian
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern personal portfolio website built with React and Tailwind CSS.  
+Designed to showcase projects, skills, and frontend development expertise with a clean and interactive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Preview
+👉 https://alian95-creator.github.io/portfolio-alifian/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ⚡ Modern UI with glassmorphism and gradient design
+- 🎯 Responsive layout (mobile & desktop)
+- 🎬 Smooth animations using Framer Motion
+- 🖼️ Interactive project showcase with modal detail
+- 💡 Clean and structured codebase
+- 🌙 Dark theme design
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- React.js
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Git & GitHub Pages
+
+---
+
+## 📂 Project Structure
+
+src/
+├── assets/
+├── components/
+├── data/
+└── App.jsx
+
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+git clone https://github.com/Alian95-creator/portfolio-alifian.git
+
+
+Install dependencies:
+npm install
+
+
+Run development server:
+npm run dev
+
+
+---
+
+## 🚀 Deployment
+
+This project is deployed using GitHub Pages.
+npm run build
+npm run deploy
+
+
+---
+
+## 📸 Preview
+
+![Preview](./src/assets/profile.png)
+
+---
+
+## 👨‍💻 Author
+
+**Alifian**  
+Frontend Developer focused on building modern and user-friendly web interfaces.
+
+---
+
+## 📬 Contact
+
+Feel free to reach out for collaboration or opportunities.
