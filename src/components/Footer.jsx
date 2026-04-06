@@ -7,7 +7,7 @@ export default function Footer() {
           <a href="https://github.com/alian95-creator" target="_blank" className="hover:text-purple-400 transition">
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/alifian/" target="_blank" className="hover:text-purple-400 transition">
+          <a href="https://www.linkedin.com/in/alifian-candra-7259b5190/" target="_blank" className="hover:text-purple-400 transition">
             LinkedIn
           </a>
           <a href="mailto:alifiancandra73@gmail.com" className="hover:text-purple-400 transition">
