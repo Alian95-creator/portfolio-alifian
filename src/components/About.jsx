@@ -57,16 +57,27 @@ const About = () => {
         className="relative mt-10 md:mt-0 z-10 cursor-pointer group"
         onClick={() => setOpen(true)}
       >
+        {/* SMOKY EFFECT */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-gray-300 opacity-30 blur-xl"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, repeat: Infinity, repeatType: "mirror" }}
+        ></motion.div>
+
         {/* GLOW */}
         <div className="absolute inset-0 flex justify-center items-center">
           <div className="w-[320px] h-[320px] bg-gray-500/20 blur-[120px] rounded-full group-hover:opacity-100 opacity-60 transition"></div>
         </div>
 
         {/* IMAGE */}
-        <img
+        <motion.img
           src={profileImg}
           alt="Alifian"
-          className="relative w-[280px] md:w-[320px] object-contain z-10 transition duration-500 group-hover:scale-105"
+          className="relative w-[280px] md:w-[320px] object-contain z-10 transition duration-500 group-hover:scale-105 rounded-full"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1 }}
         />
       </div>
 
