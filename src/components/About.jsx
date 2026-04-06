@@ -11,11 +11,13 @@ const About = () => {
       id="about"
       className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 relative overflow-hidden bg-[#020617]"
     >
-      {/* GRID BACKGROUND */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
       {/* LEFT TEXT */}
-      <div className="max-w-xl z-10">
+      <motion.div 
+        className="max-w-xl z-10"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <h1 className="text-5xl font-bold text-white leading-tight">
           Hi, I'm{" "}
           <span className="bg-gradient-to-r from-gray-300 to-gray-500 bg-clip-text text-transparent">
@@ -27,7 +29,7 @@ const About = () => {
           I am a passionate Frontend Developer with a strong focus on building modern,
           responsive, and user-friendly web interfaces. I specialize in React,
           Tailwind CSS, and creating smooth user experiences with clean and scalable code.
-          
+          <br /><br />
           I enjoy turning ideas into interactive digital products that not only look
           great but also perform efficiently across different devices.
         </p>
@@ -50,21 +52,26 @@ const About = () => {
             <FaGithub />
           </a>
         </div>
-      </div>
+      </motion.div>
 
       {/* RIGHT IMAGE + SMOKE */}
-      <div className="relative mt-10 md:mt-0 z-10 w-[280px] md:w-[320px] mx-auto">
-        {/* Smoke WebGL behind profile */}
-        <SmokeCanvas />
+      <motion.div
+        className="relative mt-10 md:mt-0 z-10 w-[280px] md:w-[320px] mx-auto"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Smoke effect behind profile */}
+        <SmokeOverlay />
 
         {/* Profile image */}
         <img
           src={profileImg}
           alt="Alifian"
-          className="relative w-[280px] md:w-[320px] object-contain z-20 rounded-full mx-auto transition duration-500 cursor-pointer"
+          className="relative w-[280px] md:w-[320px] object-contain z-20 rounded-full mx-auto transition duration-500 cursor-pointer hover:scale-105"
           onClick={() => setOpen(true)}
         />
-      </div>
+      </motion.div>
 
       {/* MODAL ZOOM */}
       <AnimatePresence>
