@@ -1,44 +1,62 @@
-import { useState } from "react";
+import profileImg from "../assets/profile.png";
 import { motion } from "framer-motion";
 
-export default function About() {
-  const [zoom, setZoom] = useState(false);
-
+const About = () => {
   return (
-    <section id="about" className="min-h-screen flex items-center px-10 pt-24">
-  <div className="grid md:grid-cols-2 gap-12 items-center">
-
-    {/* FOTO */}
-    <motion.div
-      whileHover={{ scale: 1.08, rotate: -3 }}
-      className="border border-white/10 p-2 rounded-2xl glow-card"
+    <section
+      id="about"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 bg-[#020617]"
     >
-      <img src="/public/profile.png" className="rounded-xl" />
-    </motion.div>
+      
+      {/* LEFT - IMAGE */}
+      <motion.div
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mb-10 md:mb-0"
+      >
+        <img
+          src={profileImg}
+          alt="Alifian"
+          className="w-[280px] md:w-[350px] rounded-2xl shadow-[0_0_40px_rgba(139,92,246,0.5)] object-cover"
+        />
+      </motion.div>
 
-    {/* TEXT */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      <h2 className="text-4xl font-bold mb-4 glow-text">
-        Hi, I'm Alifian 👋
-      </h2>
+      {/* RIGHT - TEXT */}
+      <motion.div
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-xl"
+      >
+        <h1 className="text-4xl md:text-5xl font-bold text-white">
+          Hi, I'm{" "}
+          <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+            Alifian
+          </span>
+        </h1>
 
-      <p className="text-gray-400 leading-relaxed">
-        A self-taught frontend developer with one year of experience building modern web applications.
-        I started from scratch, learning HTML, CSS, and JavaScript independently, then advancing into
-        React, Node.js, and modern tools like Vite, Git, and GitHub.
+        <p className="text-gray-400 mt-4 text-lg leading-relaxed">
+          I am a Frontend Developer with experience in building modern web applications
+          using React, Tailwind CSS, and JavaScript. I focus on creating clean UI,
+          smooth user experience, and responsive design.
+        </p>
 
-        <br /><br />
+        <div className="mt-6 flex flex-wrap gap-3">
+          <span className="bg-purple-600 px-4 py-1 rounded-full text-sm text-white">
+            React
+          </span>
+          <span className="bg-blue-600 px-4 py-1 rounded-full text-sm text-white">
+            Tailwind
+          </span>
+          <span className="bg-green-600 px-4 py-1 rounded-full text-sm text-white">
+            Node.js
+          </span>
+        </div>
+      </motion.div>
 
-        I focus on creating clean, responsive, and user-friendly interfaces, continuously improving
-        my skills through real-world projects.
-      </p>
-    </motion.div>
-
-  </div>
-</section>
+    </section>
   );
-}
+};
+
+export default About;
