@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 
-
 const projects = [
   {
     name: "Movie Explorer App",
@@ -50,24 +49,32 @@ export default function Projects() {
       <h2 className="text-3xl text-center mb-10 glow-text">Projects</h2>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         className="grid md:grid-cols-3 gap-6"
+        transition={{ duration: 0.7 }}
       >
         {projects.map((p, i) => (
           <motion.div
             key={i}
             whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-[#1a1a1a] p-6 rounded-2xl glow-card cursor-pointer transition"
+            className="bg-[#1a1a1a] rounded-2xl overflow-hidden cursor-pointer shadow-lg transition"
           >
-            <h3 className="text-lg mb-2">{p.name}</h3>
-
-            <button
-              onClick={() => setSelected(p)}
-              className="text-[#8b7d7b] text-sm hover:underline"
-            >
-              View Details →
-            </button>
+            <img
+              src={p.image}
+              alt={p.name}
+              className="w-full h-48 object-cover rounded-t-2xl"
+            />
+            <div className="p-5">
+              <h3 className="text-lg font-semibold mb-2 text-white">{p.name}</h3>
+              <p className="text-gray-400 text-sm mb-3">{p.desc}</p>
+              <button
+                onClick={() => setSelected(p)}
+                className="text-[#8b7d7b] text-sm hover:underline"
+              >
+                View Details →
+              </button>
+            </div>
           </motion.div>
         ))}
       </motion.div>
