@@ -1,13 +1,66 @@
-export default function Navbar() {
-  return (
-    <div className="fixed w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/10 px-10 py-4 flex justify-between">
-      <h1 className="text-xl font-bold glow-text">Alifian</h1>
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiMenu, HiX } from "react-icons/hi";
 
-      <div className="space-x-8 text-sm">
-        <a href="#about" className="hover:text-[#8b7d7b] transition">About</a>
-        <a href="#projects" className="hover:text-[#8b7d7b] transition">Projects</a>
-        <a href="#contact" className="hover:text-[#8b7d7b] transition">Contact</a>
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const menuItems = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <nav className="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <div className="text-white font-bold text-xl cursor-pointer">Alifian</div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-6">
+          {menuItems.map((item, i) => (
+            <a
+              key={i}
+              href={item.href}
+              className="text-gray-300 hover:text-white transition"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        {/* Hamburger */}
+        <div className="md:hidden">
+          <button onClick={() => setOpen(!open)} className="text-gray-300">
+            {open ? <HiX size={28} /> : <HiMenu size={28} />}
+          </button>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="md:hidden fixed inset-0 bg-[#020617]/95 flex flex-col items-center justify-center space-y-6 text-2xl text-white z-40"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.4 }}
+          >
+            {menuItems.map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                className="hover:text-gray-300 transition"
+                onClick={() => setOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }
