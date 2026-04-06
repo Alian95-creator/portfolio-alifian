@@ -13,3 +13,18 @@ body {
 
   background-size: 40px 40px;
 }
+
+/* PREMIUM EFFECTS */
+.glow-text {
+  background: linear-gradient(90deg, #8b7d7b, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-card {
+  box-shadow: 0 0 20px rgba(139, 125, 123, 0.2);
+}
+
+.glow-card:hover {
+  box-shadow: 0 0 40px rgba(139, 125, 123, 0.4);
+}
