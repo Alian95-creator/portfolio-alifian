@@ -1,25 +1,24 @@
-import React from "react";
+import htmlIcon from "../assets/icons/html.png";
+import cssIcon from "../assets/icons/css.png";
+import jsIcon from "../assets/icons/js.png";
+import reactIcon from "../assets/icons/react.png";
+import tailwindIcon from "../assets/icons/tailwind.png";
 
-const icons = [
-  "/icon/html.svg",
-  "/icon/css.svg",
-  "/icon/javascript.svg",
-  "/icon/react.svg",
-  "/icon/nodejs.svg",
-  "/icon/tailwind.svg",
-];
+const CustomIcons = () => {
+  const icons = [htmlIcon, cssIcon, jsIcon, reactIcon, tailwindIcon];
 
-export default function CustomIcons() {
   return (
-    <div className="flex flex-wrap gap-4 mt-4">
-      {icons.map((icon, idx) => (
+    <div className="flex gap-4 mt-4">
+      {icons.map((icon, i) => (
         <img
-          key={idx}
+          key={i}
           src={icon}
-          alt="tech icon"
-          className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer transform transition-transform duration-300 hover:scale-125"
+          alt="tech"
+          className="w-8 h-8 object-contain hover:scale-110 transition"
         />
       ))}
     </div>
   );
-}
+};
+
+export default CustomIcons;

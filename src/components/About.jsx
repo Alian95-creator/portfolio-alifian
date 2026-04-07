@@ -2,7 +2,7 @@ import { useState } from "react";
 import profileImg from "../assets/profile.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import CustomIcons from "../components/CustomIcons";
+import CustomIcons from "./CustomIcons";
 
 const About = () => {
   const [open, setOpen] = useState(false);
