@@ -9,7 +9,12 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 relative overflow-hidden bg-[#020617]"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
     >
       {/* LEFT TEXT */}
       <motion.div 
