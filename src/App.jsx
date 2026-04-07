@@ -3,9 +3,9 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
-  // Smooth scroll for all anchor links
   useEffect(() => {
     const handleAnchorClick = (e) => {
       const target = e.target;
@@ -25,13 +25,16 @@ function App() {
   }, []);
 
   return (
-    <div className="scroll-smooth">
+    <div className="scroll-smooth bg-[#020617] text-white">
       <Navbar />
+
       <main>
         <About />
         <Projects />
         <Contact />
       </main>
+
+      <Footer /> {/* 🔥 FIX */}
     </div>
   );
 }
