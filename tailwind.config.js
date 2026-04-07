@@ -1,20 +1,22 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Custom easing untuk hover icon smooth
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+      colors: {
+        // tambahan warna opsional jika mau nanti
+      },
+      spacing: {
+        // tambahan spacing opsional jika perlu
+      },
+    },
   },
   plugins: [],
-}
-module.exports = {
-  content: ["./index.html","./src/**/*.{js,jsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/aspect-ratio')
-  ],
-}
+};
