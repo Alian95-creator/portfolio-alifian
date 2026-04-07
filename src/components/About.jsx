@@ -59,11 +59,11 @@ const About = () => {
         >
           <img
             src={profileImg}
-            className="w-full h-full object-cover cursor-pointer"
+            // className="w-full h-full object-cover cursor-pointer"
             onClick={() => setOpen(true)}
           />
 
-          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,transparent_60%,rgba(255,255,255,0.3)_100%)]" />
+          {/* <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,transparent_60%,rgba(255,255,255,0.3)_100%)]" /> */}
         </motion.div>
       </div>
 
