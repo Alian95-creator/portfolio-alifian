@@ -2,23 +2,36 @@ const CustomIcons = () => {
   const base = import.meta.env.BASE_URL;
 
   const icons = [
-    `${base}icons/html.svg`,
-    `${base}icons/css.svg`,
-    `${base}icons/javascript.svg`,
-    `${base}icons/react.svg`,
-    `${base}icons/tailwind.svg`,
-    `${base}icons/vite.svg`,
+    { src: `${base}icons/html.svg`, name: "HTML" },
+    { src: `${base}icons/css.svg`, name: "CSS" },
+    { src: `${base}icons/javasript.svg`, name: "JavaScript" },
+    { src: `${base}icons/react.svg`, name: "React" },
+    { src: `${base}icons/tailwind.svg`, name: "Tailwind" },
+    { src: `${base}icons/vite.svg`, name: "Vite" },
   ];
 
   return (
-    <div className="flex gap-5 mt-5">
+    <div className="flex gap-6 mt-6 flex-wrap">
       {icons.map((icon, i) => (
-        <img
-          key={i}
-          src={icon}
-          alt="tech"
-          className="w-10 h-10 hover:scale-110 transition"
-        />
+        <div key={i} className="group relative">
+          
+          <img
+            src={icon.src}
+            alt={icon.name}
+            className="w-12 h-12 transition duration-300 
+                       group-hover:scale-110 
+                       group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+          />
+
+          {/* TOOLTIP */}
+          <span className="absolute left-1/2 -translate-x-1/2 top-14 
+                           opacity-0 group-hover:opacity-100
+                           text-xs bg-gray-800 text-white px-2 py-1 rounded
+                           transition duration-300 whitespace-nowrap">
+            {icon.name}
+          </span>
+
+        </div>
       ))}
     </div>
   );
