@@ -1,13 +1,12 @@
 import React from "react";
+import htmlIcon from "../assets/icon/html.svg";
+import cssIcon from "../assets/icon/css.svg";
+import jsIcon from "../assets/icon/javascript.svg";
+import reactIcon from "../assets/icon/react.svg";
+import nodeIcon from "../assets/icon/nodejs.svg";
+import tailwindIcon from "../assets/icon/tailwind.svg";
 
-const icons = [
-  "/icon/html.svg",
-  "/icon/css.svg",
-  "/icon/javascript.svg",
-  "/icon/react.svg",
-  "/icon/nodejs.svg",
-  "/icon/tailwind.svg",
-];
+const icons = [htmlIcon, cssIcon, jsIcon, reactIcon, nodeIcon, tailwindIcon];
 
 export default function CustomIcons() {
   return (
