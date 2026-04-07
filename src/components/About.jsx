@@ -2,6 +2,7 @@ import { useState } from "react";
 import profileImg from "../assets/profile.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import CustomIcons from "../components/CustomIcons";
 
 const About = () => {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,7 @@ const About = () => {
       style={{
         background: "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
         backgroundSize: "cover",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
       }}
     >
       {/* LEFT TEXT */}
@@ -57,6 +58,9 @@ const About = () => {
             <FaGithub />
           </a>
         </div>
+
+        {/* CUSTOM ICONS */}
+        <CustomIcons />
       </motion.div>
 
       {/* RIGHT IMAGE */}
