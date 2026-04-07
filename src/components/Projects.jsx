@@ -6,7 +6,32 @@ const projects = [
   {
     title: "Portfolio Website",
     desc: "Modern portfolio with React & Tailwind",
-    image: `${base}project1.png`, // ✅ FIX
+    image: `${base}movie.png`,
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Modern portfolio with React & Tailwind",
+    image: `${base}store.png`,
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Modern portfolio with React & Tailwind",
+    image: `${base}login.png`,
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Modern portfolio with React & Tailwind",
+    image: `${base}weather.png`,
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Modern portfolio with React & Tailwind",
+    image: `${base}hamster.png`,
+  },
+  {
+    title: "Portfolio Website",
+    desc: "Modern portfolio with React & Tailwind",
+    image: `${base}law.png`,
   },
 ];
 
