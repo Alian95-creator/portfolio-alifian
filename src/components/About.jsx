@@ -61,7 +61,7 @@ const About = () => {
 
       {/* RIGHT IMAGE */}
       <motion.div
-        className="relative mt-10 md:mt-0 z-10 w-[280px] md:w-[320px] mx-auto"
+        className="relative mt-6 md:mt-0 z-10 w-[280px] md:w-[320px] mx-auto"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
