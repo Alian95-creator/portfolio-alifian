@@ -5,6 +5,7 @@ const icons = [
   "/icon/css.svg",
   "/icon/javascript.svg",
   "/icon/react.svg",
+  "/icon/nodejs.svg",
   "/icon/tailwind.svg",
 ];
 
