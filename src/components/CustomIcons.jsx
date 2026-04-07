@@ -4,7 +4,7 @@ const CustomIcons = () => {
   const icons = [
     { src: `${base}icons/html.svg`, name: "HTML" },
     { src: `${base}icons/css.svg`, name: "CSS" },
-    { src: `${base}icons/javasript.svg`, name: "JavaScript" },
+    { src: `${base}icons/javascript.svg`, name: "Javascript" },
     { src: `${base}icons/react.svg`, name: "React" },
     { src: `${base}icons/tailwind.svg`, name: "Tailwind" },
     { src: `${base}icons/vite.svg`, name: "Vite" },
