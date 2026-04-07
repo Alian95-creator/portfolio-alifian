@@ -24,8 +24,8 @@ const projects = [
     image: `${base}weather.png`,
   },
   {
-    title: "Hamster Game",
-    desc: "Interactive mini game",
+    title: "Hamster store website",
+    desc: "Interactive mini store integrate link seller",
     image: `${base}hamster.png`,
   },
   {
