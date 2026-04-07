@@ -12,10 +12,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md shadow-md">
+    <nav className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-white font-bold text-xl cursor-pointer">Alifian</div>
+        <div className="text-white font-bold text-xl cursor-pointer">Alian95-creator</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
