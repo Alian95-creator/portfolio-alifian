@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
 
-const base = import.meta.env.BASE_URL; // 🔥 WAJIB
+const base = import.meta.env.BASE_URL;
 
 const projects = [
   {
-    title: "Portfolio Website",
-    desc: "Modern portfolio with React & Tailwind",
+    title: "Movie App",
+    desc: "Movie search application",
     image: `${base}movie.png`,
   },
   {
-    title: "Portfolio Website",
-    desc: "Modern portfolio with React & Tailwind",
+    title: "Store App",
+    desc: "E-commerce UI",
     image: `${base}store.png`,
   },
   {
-    title: "Portfolio Website",
-    desc: "Modern portfolio with React & Tailwind",
+    title: "Login Page",
+    desc: "Authentication UI design",
     image: `${base}login.png`,
   },
   {
-    title: "Portfolio Website",
-    desc: "Modern portfolio with React & Tailwind",
+    title: "Weather App",
+    desc: "Weather forecast app",
     image: `${base}weather.png`,
   },
   {
-    title: "Portfolio Website",
-    desc: "Modern portfolio with React & Tailwind",
+    title: "Hamster Game",
+    desc: "Interactive mini game",
     image: `${base}hamster.png`,
   },
   {
-    title: "Portfolio Website",
-    desc: "Modern portfolio with React & Tailwind",
+    title: "Law Website",
+    desc: "Law firm landing page",
     image: `${base}law.png`,
   },
 ];
