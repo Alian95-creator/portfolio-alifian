@@ -1,4 +1,3 @@
-import React from "react";
 import htmlIcon from "../assets/icon/html.svg";
 import cssIcon from "../assets/icon/css.svg";
 import jsIcon from "../assets/icon/javascript.svg";
