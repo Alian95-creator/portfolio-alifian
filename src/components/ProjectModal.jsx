@@ -6,7 +6,7 @@ export default function ProjectModal({ project, close }) {
 
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        animate={{ scale: 0.9, opacity: 1 }}
         className="bg-[#1a1a1a] p-6 rounded-2xl max-w-md w-full glow-card"
       >
 
@@ -19,7 +19,7 @@ export default function ProjectModal({ project, close }) {
 
         <p className="text-gray-400 mb-4">{project.desc}</p>
 
-        <a href={project.link} target="_blank" className="text-[#8b7d7b] underline">
+        <a href={project.link} target="_blank" className="text-[#13d823] underline">
           Visit Project
         </a>
 

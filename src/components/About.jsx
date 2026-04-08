@@ -29,7 +29,7 @@ const About = () => {
         <div className="flex-1 max-w-lg relative z-10">
           <h1
             className="text-white font-bold leading-tight"
-            style={{ fontSize: "clamp(1.8rem, 7vw, 3.5rem)" }}
+            style={{ fontSize: "clamp(1rem, 6vw, 2rem)" }}
           >
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-gray-300 to-gray-500 bg-clip-text text-transparent">
@@ -48,12 +48,36 @@ const About = () => {
           </p>
 
           {/* SOCIAL ICON */}
-          <div className="flex gap-4 mt-4 text-xl text-gray-400">
-            <FaLinkedin className="hover:text-white cursor-pointer" />
-            <FaGithub className="hover:text-white cursor-pointer" />
-            <FaTwitter className="hover:text-white cursor-pointer" />
-            <FaInstagram className="hover:text-white cursor-pointer" />
-          </div>
+       <div className="flex gap-4 mt-4 text-xl text-gray-400">
+         <a
+        href="https://www.linkedin.com/in/alifian-candra-7259b5190/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+           <FaLinkedin className="hover:text-white cursor-pointer" />
+         </a>
+         <a
+        href="https://github.com/Alian95-creator"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+           <FaGithub className="hover:text-white cursor-pointer" />
+         </a>
+         <a
+        href="https://x.com/CryptoSinau"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+           <FaTwitter className="hover:text-white cursor-pointer" />
+         </a>
+         <a
+        href="https://www.instagram.com/convertweb88/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+           <FaInstagram className="hover:text-white cursor-pointer" />
+         </a>
+       </div>
 
           <CustomIcons />
         </div>
