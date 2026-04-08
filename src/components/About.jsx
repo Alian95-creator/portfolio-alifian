@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import profileImg from "../assets/profile.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
@@ -9,6 +9,11 @@ const About = () => {
   const [text, setText] = useState("");
   const fullText = "Alifian";
 
+  // 🔥 proximity states
+  const imgRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  // 🔥 typing effect
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -17,6 +22,37 @@ const About = () => {
       if (index === fullText.length) clearInterval(interval);
     }, 100);
     return () => clearInterval(interval);
+  }, []);
+
+  // 🔥 proximity detection
+  const handleMouseMove = (e) => {
+    if (!imgRef.current) return;
+
+    const rect = imgRef.current.getBoundingClientRect();
+
+    const imgCenterX = rect.left + rect.width / 2;
+    const imgCenterY = rect.top + rect.height / 2;
+
+    const distanceX = e.clientX - imgCenterX;
+    const distanceY = e.clientY - imgCenterY;
+
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+    const maxDistance = 200;
+    const minScale = 1;
+    const maxScale = 1.2;
+
+    const newScale =
+      distance < maxDistance
+        ? maxScale - (distance / maxDistance) * (maxScale - minScale)
+        : minScale;
+
+    setScale(newScale);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -64,10 +100,10 @@ const About = () => {
             <a href="https://github.com/Alian95-creator" target="_blank">
               <FaGithub className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="https://x.com/CryptoSinau">
+            <a href="#">
               <FaTwitter className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="https://www.instagram.com/convertweb88/?hl=en">
+            <a href="#">
               <FaInstagram className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
           </div>
@@ -86,8 +122,17 @@ const About = () => {
             <div className="absolute w-64 h-64 md:w-80 md:h-80 bg-white/10 rounded-full blur-3xl"></div>
 
             <motion.div
-              animate={{ y: [0, -15, 0], rotate: [0, 2, -2, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
+              ref={imgRef}
+              animate={{
+                scale: scale,
+                y: [0, -15, 0],
+                rotate: [0, 2, -2, 0]
+              }}
+              transition={{
+                scale: { type: "spring", stiffness: 120, damping: 15 },
+                y: { duration: 6, repeat: Infinity },
+                rotate: { duration: 6, repeat: Infinity }
+              }}
               className="relative w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden cursor-pointer"
               onClick={() => setOpen(true)}
             >

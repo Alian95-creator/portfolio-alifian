@@ -17,6 +17,7 @@ body {
 /* PREMIUM EFFECTS */
 html {
   scroll-behavior: smooth;
+  ease: [0.25, 0.8, 0.25, 1]
 }
 .glow-text {
   background: linear-gradient(90deg, #8b7d7b, #ffffff);
