@@ -29,7 +29,7 @@ const About = () => {
         <div className="flex-1 max-w-lg relative z-10">
           <h1
             className="text-white font-bold leading-tight"
-            style={{ fontSize: "clamp(1rem, 6vw, 2rem)" }}
+            style={{ fontSize: "clamp(2rem, 8vw, 4rem)" }}
           >
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-gray-300 to-gray-500 bg-clip-text text-transparent">
@@ -38,7 +38,9 @@ const About = () => {
             </span>
           </h1>
 
-          <p className="text-gray-400 mt-4 text-sm md:text-base leading-relaxed md:pr-40">
+          <p className="text-gray-400 mt-6 leading-relaxed"
+          style={{ fontSize: "clamp(0.9rem, 2vw, 1.25rem)" }}
+          >
             I am a passionate Frontend Developer with a strong focus on building modern,
             responsive, and user-friendly web interfaces. I specialize in React,
             Tailwind CSS, and creating smooth user experiences with clean and scalable code.
