@@ -4,8 +4,10 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 function App() {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -14,7 +16,14 @@ function App() {
         duration: 1,
         ease: [0.25, 0.8, 0.25, 1],
       }}
-      className="bg-[#020617] text-white"
+      className="scroll-smooth bg-[#020617] text-white"
+    >
+    <div
+      onMouseMove={(e) => setPos({ x: e.clientX, y: e.clientY })}
+      className="relative z-10"
+      style={{
+        backgroundPosition: `${pos.x * 0.02}px ${pos.y * 0.02}px`
+      }}
     >
       <Navbar />
 
@@ -22,9 +31,9 @@ function App() {
         <About />
         <Projects />
         <Contact />
+        <Footer />
       </main>
-
-      <Footer />
+      </div>
     </motion.div>
   );
 }

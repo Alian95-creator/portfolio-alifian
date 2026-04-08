@@ -2,16 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* BASE BACKGROUND */
 body {
-  background-color: #0f0f0f;
-  color: white;
-  font-family: sans-serif;
+  background-color: #020617;
+  position: relative;
+}
+
+/* GRID LAYER */
+/* GRID LAYER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 
   background-image:
     linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
 
   background-size: 40px 40px;
+
+  animation: gridMove 60s linear infinite;
+}
+
+/* 🔥 SUPER SLOW DRIFT */
+@keyframes gridMove {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-40px, -40px);
+  }
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background: radial-gradient(circle at center, transparent 60%, #020617 90%);
 }
 
 /* PREMIUM EFFECTS */
