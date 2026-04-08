@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -25,17 +26,58 @@ function App() {
   }, []);
 
   return (
-    <div className="scroll-smooth bg-[#020617] text-white">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: [0.25, 0.8, 0.25, 1], // smooth premium easing
+      }}
+      className="scroll-smooth bg-[#020617] text-white"
+    >
       <Navbar />
 
       <main>
-        <About />
-        <Projects />
-        <Contact />
+        {/* ABOUT */}
+        <motion.section
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <About />
+        </motion.section>
+
+        {/* PROJECTS */}
+        <motion.section
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          <Projects />
+        </motion.section>
+
+        {/* CONTACT */}
+        <motion.section
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Contact />
+        </motion.section>
       </main>
 
-      <Footer /> {/* 🔥 FIX */}
-    </div>
+      {/* FOOTER */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Footer />
+      </motion.div>
+    </motion.div>
   );
 }
 
