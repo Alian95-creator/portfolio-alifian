@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
+import profilePic from "../assets/profile.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -12,13 +13,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <nav className="fixed w-full z-50 bg-transparent">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        {/* <div className="text-white font-bold text-xl cursor-pointer">Alian95-creator</div> */}
+        {/* kiri: salam pembuka/logo */}
+        <div className="flex items-center gap-3">
+          <h1 className="text-white font-bold text-lg md:text-xl">Wellcome in my website</h1>
+        </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6">
+        {/* Kanan : Desktop Menu */}
+        <div className="hidden md:flex gap-3 items-center">
           {menuItems.map((item, i) => (
             <a
               key={i}
@@ -33,7 +36,7 @@ export default function Navbar() {
         {/* Hamburger */}
         <div className="md:hidden">
           <button onClick={() => setOpen(!open)} className="text-gray-300">
-            {open ? <HiX size={28} /> : <HiMenu size={28} />}
+            {open ? <HiX size={25} /> : <HiMenu size={25} />}
           </button>
         </div>
       </div>
@@ -42,10 +45,10 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="md:hidden fixed inset-0 bg-[#020617]/95 flex flex-col items-center justify-center space-y-6 text-2xl text-white z-40"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
+            className="md:hidden fixed top-0 right-0 w-2/3 h-full bg-[#020617]/95 flex flex-col items-start justify-start pt-20 pl-6 space-y-6 text-2xl text-white z-40"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.4 }}
           >
             {menuItems.map((item, i) => (
