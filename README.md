@@ -1,85 +1,51 @@
-# 🚀 Portfolio Alifian
+# Portfolio Alifian
 
-Modern personal portfolio website built with React and Tailwind CSS.  
-Designed to showcase projects, skills, and frontend development expertise with a clean and interactive UI.
+Selamat datang di portfolio frontend developer **Alifian**! 🚀  
+Website ini dibangun menggunakan **React**, **Tailwind CSS**, dan **Framer Motion** dengan fitur interaktif yang cinematic.
 
----
+## 🌟 Features
 
-## 🌐 Live Preview
-👉 https://alian95-creator.github.io/portfolio-alifian/
+- **Cinematic Smoke Background**: Background animasi halus dengan smoke/fog efek bergerak mengikuti scroll.  
+- **Parallax Layers**: Smoke dan background grid punya depth berbeda saat scrolling.  
+- **Floating Particles**: Tiny shimmering dots bergerak halus, menambah efek hidup di background.  
+- **Cursor Glow**: Efek glow mengikuti mouse pointer.  
+- **Interactive Projects**: Hover animasi, link ke semua project yang pernah dibuat.  
+- **Dynamic Reviews**:  
+  - Bisa submit, edit, delete review  
+  - Review tersimpan otomatis menggunakan **Firebase Realtime Database** (bisa dilihat oleh semua pengunjung)  
+- **Responsive Design**: Mobile & desktop friendly.  
+- **Animated About Section**: Text typing effect & floating profile image.  
 
----
+## 💻 Tech Stack
 
-## ✨ Features
+- **React 18**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Firebase** (Realtime Database for reviews)
+- **React Icons**  
 
-- ⚡ Modern UI with glassmorphism and gradient design
-- 🎯 Responsive layout (mobile & desktop)
-- 🎬 Smooth animations using Framer Motion
-- 🖼️ Interactive project showcase with modal detail
-- 💡 Clean and structured codebase
-- 🌙 Dark theme design
+## 🚀 Live Demo
 
----
+[https://alian95-creator.github.io/portfolio-alifian/](https://alian95-creator.github.io/portfolio-alifian/)
 
-## 🛠️ Tech Stack
+## 📂 Projects
 
-- React.js
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Git & GitHub Pages
+1. **Movie Explorer** – [Link](https://alian95-creator.github.io/movie-explorer/)  
+2. **Weather App** – [Link](https://alian95-creator.github.io/winter-dashboard/)  
+3. **Dynamic Product Store** – [Link](https://alian95-creator.github.io/Repository-name-dynamic-product-store/)  
+4. **Mochihamuya Hamster** – [Link](https://alian95-creator.github.io/website-mochihamuya-hamster/)  
+5. **Startup Login** – [Link](https://alian95-creator.github.io/Startup-Login-Signup/)  
+6. **Law Office Website** – [Link](https://alian95-creator.github.io/website-advokad-surabaya/)  
 
----
+## 📌 Installation
 
-## 📂 Project Structure
-
-src/
-├── assets/
-├── components/
-├── data/
-└── App.jsx
-
-
----
-
-## ⚙️ Installation
-
-Clone the repository:
+```bash
+# Clone repo
 git clone https://github.com/Alian95-creator/portfolio-alifian.git
+cd portfolio-alifian
 
+# Install dependencies
+npm install --legacy-peer-deps
 
-Install dependencies:
-npm install
-
-
-Run development server:
+# Run locally
 npm run dev
-
-
----
-
-## 🚀 Deployment
-
-This project is deployed using GitHub Pages.
-npm run build
-npm run deploy
-
-
----
-
-## 📸 Preview
-
-![Preview](./src/assets/profile.png)
-
----
-
-## 👨‍💻 Author
-
-**Alifian**  
-Frontend Developer focused on building modern and user-friendly web interfaces.
-
----
-
-## 📬 Contact
-
-Feel free to reach out for collaboration or opportunities.
