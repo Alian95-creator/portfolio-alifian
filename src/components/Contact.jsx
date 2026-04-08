@@ -1,3 +1,4 @@
+import { db } from "../firebase";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
