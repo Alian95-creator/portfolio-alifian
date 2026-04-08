@@ -26,8 +26,13 @@ const About = () => {
     >
       <div className="grid md:grid-cols-2 gap-10 items-center w-full max-w-7xl">
 
-        {/* LEFT CONTENT */}
-        <div>
+        {/* LEFT */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h1
             className="text-white font-bold leading-tight"
             style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
@@ -51,53 +56,57 @@ const About = () => {
             great but also perform efficiently across different devices.
           </p>
 
-          {/* SOCIAL ICONS (dipindah dari atas → tetap ada) */}
+          {/* SOCIAL */}
           <div className="flex gap-5 mt-6 text-2xl text-gray-400">
             <a href="https://www.linkedin.com/in/alifian-candra-7259b5190/" target="_blank">
-              <FaLinkedin className="hover:text-white hover:scale-125 transition duration-300 cursor-pointer" />
+              <FaLinkedin className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
             <a href="https://github.com/Alian95-creator" target="_blank">
-              <FaGithub className="hover:text-white hover:scale-125 transition duration-300 cursor-pointer" />
+              <FaGithub className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="#" target="_blank">
-              <FaTwitter className="hover:text-white hover:scale-125 transition duration-300 cursor-pointer" />
+            <a href="https://x.com/CryptoSinau">
+              <FaTwitter className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="#" target="_blank">
-              <FaInstagram className="hover:text-white hover:scale-125 transition duration-300 cursor-pointer" />
+            <a href="https://www.instagram.com/convertweb88/?hl=en">
+              <FaInstagram className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        {/* RIGHT CONTENT */}
-        <div className="flex flex-col items-center">
-
-          {/* FOTO */}
+        {/* RIGHT */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center"
+        >
+          {/* IMAGE */}
           <div className="relative">
             <div className="absolute w-64 h-64 md:w-80 md:h-80 bg-white/10 rounded-full blur-3xl"></div>
 
             <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="relative w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden"
+              animate={{ y: [0, -15, 0], rotate: [0, 2, -2, 0] }}
+              transition={{ duration: 6, repeat: Infinity }}
+              className="relative w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden cursor-pointer"
+              onClick={() => setOpen(true)}
             >
               <img
                 src={profileImg}
-                // className="w-full h-full object-cover cursor-pointer"
-                onClick={() => setOpen(true)}
+                // className="w-full h-full object-cover"
               />
             </motion.div>
           </div>
 
-          {/* TECH STACK TITLE */}
+          {/* TECH STACK */}
           <h3 className="text-white mt-8 mb-4 text-lg font-semibold">
             Tech Stack
           </h3>
 
-          {/* TECH ICONS */}
           <div className="flex justify-center">
             <CustomIcons />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* MODAL */}
@@ -106,10 +115,17 @@ const About = () => {
           <motion.div
             className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
             onClick={() => setOpen(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
             <motion.img
               src={profileImg}
               className="w-full max-w-lg rounded-md"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ duration: 0.3 }}
             />
           </motion.div>
         )}
