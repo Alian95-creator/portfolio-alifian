@@ -14,7 +14,7 @@ function App() {
         duration: 1,
         ease: [0.25, 0.8, 0.25, 1],
       }}
-      className="scroll-smooth bg-[#020617] text-white"
+      className="bg-[#020617] text-white"
     >
       <Navbar />
 
