@@ -100,10 +100,10 @@ const About = () => {
             <a href="https://github.com/Alian95-creator" target="_blank">
               <FaGithub className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="#">
+            <a href="https://x.com/CryptoSinau">
               <FaTwitter className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/convertweb88/">
               <FaInstagram className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
           </div>
