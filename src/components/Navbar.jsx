@@ -13,7 +13,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-transparent">
+    <nav className="fixed w-full z-50 backdrop-blur-md bg-black/30">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* kiri: salam pembuka/logo */}
         <div className="flex items-center gap-3">
