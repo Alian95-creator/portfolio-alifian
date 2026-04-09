@@ -7,11 +7,10 @@ import CustomIcons from "../components/CustomIcons";
 const About = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
-  const messages = ["Alifian", "Frontend Developer"]; // teks bergantian
+  const messages = ["Alifian", "Frontend Developer"];
   const [msgIndex, setMsgIndex] = useState(0);
   const [typing, setTyping] = useState(true);
 
-  // 🔥 proximity states
   const imgRef = useRef(null);
   const [scale, setScale] = useState(1);
 
@@ -24,7 +23,7 @@ const About = () => {
           setText(messages[msgIndex].slice(0, text.length + 1));
         }, 150);
       } else {
-        timeout = setTimeout(() => setTyping(false), 2000); // delay sebelum backspace
+        timeout = setTimeout(() => setTyping(false), 2000);
       }
     } else {
       if (text.length > 0) {
@@ -33,7 +32,7 @@ const About = () => {
         }, 100);
       } else {
         setTyping(true);
-        setMsgIndex((prev) => (prev + 1) % messages.length); // loop pesan berikutnya
+        setMsgIndex((prev) => (prev + 1) % messages.length);
       }
     }
     return () => clearTimeout(timeout);
@@ -42,7 +41,6 @@ const About = () => {
   // 🔥 proximity detection
   const handleMouseMove = (e) => {
     if (!imgRef.current) return;
-
     const rect = imgRef.current.getBoundingClientRect();
     const imgCenterX = rect.left + rect.width / 2;
     const imgCenterY = rect.top + rect.height / 2;
@@ -119,6 +117,32 @@ const About = () => {
               <FaInstagram className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
           </div>
+
+          {/* DOWNLOAD CV */}
+          <div className="mt-6">
+            <a
+            href="https://drive.google.com/uc?export=download&id=120V6T_YcjQ0tcSjItmA0vKLUnNKhliKs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300 inline-flex items-center gap-2"
+            >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0 0l-4-4m4 4l4-4M12 4v8"
+          />
+          </svg>
+          Download CV
+          </a>
+        </div>
         </motion.div>
 
         {/* RIGHT */}

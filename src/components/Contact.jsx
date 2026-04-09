@@ -109,11 +109,11 @@ export default function Contact() {
       <h2 className="text-4xl font-bold mb-10 text-white">Reviews</h2>
 
       {/* 🔥 Login Button */}
-      <div className="mb-6">
+      <div className="mb-6 max-w-md">
         {!user ? (
           <button
             onClick={handleLogin}
-            className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700"
           >
             Login with Google
           </button>
@@ -165,7 +165,7 @@ export default function Contact() {
         </motion.form>
 
         {/* REVIEW LIST */}
-        <div className="space-y-4">
+        <div className="space-y-4 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
           {reviews.length === 0 && (
             <p className="text-gray-400">No reviews yet 👀</p>
           )}
@@ -190,13 +190,13 @@ export default function Contact() {
                     <div className="flex justify-between">
                       <h4 className="font-bold text-white">{r.name}</h4>
                       <span className="text-xs text-gray-500">
-                        {r.date.toDate ? r.date.toDate().toLocaleString() : new Date(r.date.seconds * 1000).toLocaleString()}
+                        {r.date.toDate
+                          ? r.date.toDate().toLocaleString()
+                          : new Date(r.date.seconds * 1000).toLocaleString()}
                       </span>
                     </div>
                     <p className="text-gray-400 mt-1">{r.comment}</p>
-                    <p className="text-yellow-400 mt-1">
-                      {"⭐".repeat(r.rating)}
-                    </p>
+                    <p className="text-yellow-400 mt-1">{"⭐".repeat(r.rating)}</p>
                   </div>
                 </div>
 
