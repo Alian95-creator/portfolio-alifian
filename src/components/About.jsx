@@ -7,35 +7,47 @@ import CustomIcons from "../components/CustomIcons";
 const About = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
-  const fullText = "Alifian";
+  const messages = ["Alifian", "Frontend Developer"]; // teks bergantian
+  const [msgIndex, setMsgIndex] = useState(0);
+  const [typing, setTyping] = useState(true);
 
   // 🔥 proximity states
   const imgRef = useRef(null);
   const [scale, setScale] = useState(1);
 
-  // 🔥 typing effect
+  // 🔥 typing & backspace effect
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setText(fullText.slice(0, index + 1));
-      index++;
-      if (index === fullText.length) clearInterval(interval);
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
+    let timeout;
+    if (typing) {
+      if (text.length < messages[msgIndex].length) {
+        timeout = setTimeout(() => {
+          setText(messages[msgIndex].slice(0, text.length + 1));
+        }, 150);
+      } else {
+        timeout = setTimeout(() => setTyping(false), 2000); // delay sebelum backspace
+      }
+    } else {
+      if (text.length > 0) {
+        timeout = setTimeout(() => {
+          setText(messages[msgIndex].slice(0, text.length - 1));
+        }, 100);
+      } else {
+        setTyping(true);
+        setMsgIndex((prev) => (prev + 1) % messages.length); // loop pesan berikutnya
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [text, typing, msgIndex]);
 
   // 🔥 proximity detection
   const handleMouseMove = (e) => {
     if (!imgRef.current) return;
 
     const rect = imgRef.current.getBoundingClientRect();
-
     const imgCenterX = rect.left + rect.width / 2;
     const imgCenterY = rect.top + rect.height / 2;
-
     const distanceX = e.clientX - imgCenterX;
     const distanceY = e.clientY - imgCenterY;
-
     const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
     const maxDistance = 200;
@@ -136,10 +148,7 @@ const About = () => {
               className="relative w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden cursor-pointer"
               onClick={() => setOpen(true)}
             >
-              <img
-                src={profileImg}
-                // className="w-full h-full object-cover"
-              />
+              <img src={profileImg} />
             </motion.div>
           </div>
 
