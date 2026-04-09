@@ -103,7 +103,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-6 md:px-16">
+    <section
+    id="contact" 
+    className="py-20 md:py-32 px-6 md:px-16">
       <h2 className="text-4xl font-bold mb-10 text-white">Reviews</h2>
 
       {/* 🔥 Login Button */}
