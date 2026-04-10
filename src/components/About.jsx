@@ -110,7 +110,7 @@ const About = () => {
             <a href="https://github.com/Alian95-creator" target="_blank">
               <FaGithub className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
-            <a href="https://x.com/CryptoSinau">
+            <a href="https://x.com/Alian95_creator">
               <FaTwitter className="hover:text-white hover:scale-125 hover:-translate-y-1 transition duration-300 cursor-pointer" />
             </a>
             <a href="https://www.instagram.com/convertweb88/">
