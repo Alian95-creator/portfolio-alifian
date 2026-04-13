@@ -7,9 +7,16 @@ const CustomIcons = () => {
     { src: `${base}icons/html.svg`, name: "HTML" },
     { src: `${base}icons/css.svg`, name: "CSS" },
     { src: `${base}icons/javascript.svg`, name: "Javascript" },
+    { src: `${base}icons/typescript.svg`, name: "typescript" },
     { src: `${base}icons/react.svg`, name: "React" },
     { src: `${base}icons/tailwind.svg`, name: "Tailwind" },
+    { src: `${base}icons/nodejs.svg`, name: "nodeJS" },
+    { src: `${base}icons/nextjs.svg`, name: "nextJS" },
     { src: `${base}icons/vite.svg`, name: "Vite" },
+    { src: `${base}icons/bootstrap.svg`, name: "boostrap" },
+    { src: `${base}icons/vercel.svg`, name: "vercel" },
+    { src: `${base}icons/github-wordmark.svg`, name: "github for version control" },
+    
   ];
 
   const container = {

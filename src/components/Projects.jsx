@@ -28,6 +28,14 @@ const projects = [
     impact: "Meningkatkan penjualan dengan navigasi produk lebih mudah."
   },
   {
+    title: "flowlytics",
+    link: "https://flowlytics-red.vercel.app/",
+    image: "/portfolio-alifian/projects/flowlytics.png",
+    problem: "Complex crypto data is difficult to interpret due to poor UI and overwhelming dashboards.",
+    role: "Frontend Developer: Designed and developed a Web3 analytics dashboard using React and Tailwind, focusing on performance, usability, and real-time data visualization.",
+    impact: "Delivered a clean, responsive dashboard that improves data readability and user decision-making."
+  },
+  {
     title: "Mochihamuya Hamster",
     link: "https://alian95-creator.github.io/website-mochihamuya-hamster/",
     image: "/portfolio-alifian/projects/hamster.png",
