@@ -121,7 +121,7 @@ const About = () => {
           {/* DOWNLOAD CV */}
           <div className="mt-6">
             <a
-            href="https://drive.google.com/uc?export=download&id=120V6T_YcjQ0tcSjItmA0vKLUnNKhliKs"
+            href="https://drive.google.com/file/d/1pPb9eJ1QlU3VEMw3T7s01iMBOKVb2LQw/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300 inline-flex items-center gap-2"
