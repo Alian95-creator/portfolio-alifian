@@ -50,12 +50,36 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* 🔥 LOGO */}
-        <motion.h1
-          whileHover={{ scale: 1.05 }}
-          className="text-white font-bold text-lg cursor-pointer tracking-wide"
-        >
-          Wellcome to portfolio
-        </motion.h1>
+    <motion.div
+      className="relative inline-block cursor-pointer"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      whileHover="hover"
+      initial="rest"
+      animate="rest"
+    >
+        {/* TEXT */}
+    <motion.span
+      className="text-xl md:text-2xl"
+      style={{
+      fontFamily: "'Playfair Display', serif",
+      fontStyle: "italic",
+      letterSpacing: "1px",
+      color: "white"
+      }}
+    >
+      Alifian
+    </motion.span>
+
+        {/* UNDERLINE */}
+    <motion.div
+      variants={{
+      rest: { width: "40%", opacity: 0.6 },
+      hover: { width: "100%", opacity: 1 }
+    }}
+      transition={{ duration: 0.3 }}
+      className="absolute left-0 -bottom-1 h-[2px] bg-white rounded"
+     />
+    </motion.div>
 
         {/* 🔥 DESKTOP MENU */}
         <div className="hidden md:flex items-center gap-8 relative">
