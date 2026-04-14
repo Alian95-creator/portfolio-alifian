@@ -20,17 +20,14 @@ export default function Contact() {
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // 🔥 Auth state
+  // Auth
   useEffect(() => {
     auth.onAuthStateChanged((u) => setUser(u));
   }, []);
 
-  // 🔥 Real-time listener reviews
+  // Reviews listener
   useEffect(() => {
-    const q = query(
-      collection(db, "reviews"),
-      orderBy("date", "desc")
-    );
+    const q = query(collection(db, "reviews"), orderBy("date", "desc"));
     const unsub = onSnapshot(q, (snapshot) => {
       const revs = snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -62,7 +59,6 @@ export default function Contact() {
 
     try {
       if (editingId) {
-        // Update
         const docRef = doc(db, "reviews", editingId);
         await updateDoc(docRef, {
           comment: form.comment,
@@ -71,7 +67,6 @@ export default function Contact() {
         });
         setEditingId(null);
       } else {
-        // Create
         await addDoc(collection(db, "reviews"), {
           uid: user.uid,
           name: user.displayName,
@@ -103,22 +98,29 @@ export default function Contact() {
   };
 
   return (
-    <section
-    id="contact" 
-    className="py-20 md:py-32 px-6 md:px-16">
-      <h2 className="text-4xl font-bold mb-10 text-white">Reviews</h2>
+    <section id="contact" className="py-20 md:py-32 px-6 md:px-16">
 
-      {/* 🔥 Login Button */}
+      {/* 🔥 UPGRADED HEADER */}
+      <div className="mb-10">
+        <h2 className="text-4xl font-bold text-white">
+          What People Say
+        </h2>
+        <p className="text-gray-500 mt-2">
+          Real feedback from users interacting with my projects and portfolio.
+        </p>
+      </div>
+
+      {/* LOGIN */}
       <div className="mb-6 max-w-md">
         {!user ? (
           <button
             onClick={handleLogin}
             className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700"
           >
-            Login with Google
+            Sign in to leave feedback
           </button>
         ) : (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 text-gray-300">
             <span>Hi, {user.displayName}</span>
             <button
               onClick={handleLogout}
@@ -131,43 +133,50 @@ export default function Contact() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-10">
-        {/* FORM */}
+
+        {/* FORM (UX IMPROVED LABELING) */}
         <motion.form
           onSubmit={handleSubmit}
           className="bg-[#0f172a] p-6 rounded-xl space-y-4 border border-white/10"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
         >
+          <h3 className="text-white font-semibold">
+            Leave a short feedback
+          </h3>
+
           <textarea
-            placeholder="Write your review..."
+            placeholder="What do you think about my work?"
             className="w-full p-3 rounded bg-[#020617] text-white"
             value={form.comment}
             onChange={(e) => setForm({ ...form, comment: e.target.value })}
           />
+
           <select
             className="w-full p-3 rounded bg-[#020617] text-white"
             value={form.rating}
             onChange={(e) => setForm({ ...form, rating: e.target.value })}
           >
-            <option value="5">⭐⭐⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
+            <option value="5">Excellent (⭐⭐⭐⭐⭐)</option>
+            <option value="4">Great (⭐⭐⭐⭐)</option>
+            <option value="3">Good (⭐⭐⭐)</option>
           </select>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             disabled={!user || loading}
             className="bg-white text-black px-6 py-2 rounded font-medium w-full disabled:opacity-50"
           >
-            {editingId ? "Update Review" : "Submit Review"}
+            {editingId ? "Update Feedback" : "Submit Feedback"}
           </motion.button>
         </motion.form>
 
-        {/* REVIEW LIST */}
-        <div className="space-y-4 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
+        {/* REVIEWS LIST (SOCIAL PROOF STYLE) */}
+        <div className="space-y-4 max-h-[500px] overflow-y-auto">
+
           {reviews.length === 0 && (
-            <p className="text-gray-400">No reviews yet 👀</p>
+            <p className="text-gray-400">
+              No feedback yet — be the first to leave one 👀
+            </p>
           )}
 
           <AnimatePresence>
@@ -175,32 +184,40 @@ export default function Contact() {
               <motion.div
                 key={r.id}
                 className="bg-[#0f172a] p-4 rounded-xl border border-white/10"
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ delay: i * 0.05 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ delay: i * 0.03 }}
               >
+
+                {/* USER */}
                 <div className="flex items-center gap-3">
                   <img
                     src={`https://api.dicebear.com/7.x/initials/svg?seed=${r.name}`}
-                    alt="avatar"
                     className="w-10 h-10 rounded-full bg-white"
                   />
+
                   <div className="flex-1">
                     <div className="flex justify-between">
                       <h4 className="font-bold text-white">{r.name}</h4>
                       <span className="text-xs text-gray-500">
-                        {r.date.toDate
+                        {r.date?.toDate
                           ? r.date.toDate().toLocaleString()
                           : new Date(r.date.seconds * 1000).toLocaleString()}
                       </span>
                     </div>
-                    <p className="text-gray-400 mt-1">{r.comment}</p>
-                    <p className="text-yellow-400 mt-1">{"⭐".repeat(r.rating)}</p>
+
+                    <p className="text-gray-400 mt-1">
+                      {r.comment}
+                    </p>
+
+                    <p className="text-yellow-400 mt-1">
+                      {"⭐".repeat(r.rating)}
+                    </p>
                   </div>
                 </div>
 
-                {/* ACTION BUTTONS */}
+                {/* ACTION */}
                 {user?.uid === r.uid && (
                   <div className="flex gap-4 mt-3 text-sm">
                     <button
@@ -211,15 +228,17 @@ export default function Contact() {
                     </button>
                     <button
                       onClick={() => handleDelete(r)}
-                      className="text-red-700 hover:underline"
+                      className="text-red-400 hover:underline"
                     >
                       Delete
                     </button>
                   </div>
                 )}
+
               </motion.div>
             ))}
           </AnimatePresence>
+
         </div>
       </div>
     </section>
