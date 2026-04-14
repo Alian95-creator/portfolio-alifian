@@ -2,91 +2,94 @@ import { motion } from "framer-motion";
 
 export default function ProjectModal({ project, close }) {
   return (
-    <div
-      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
-      onClick={close}
-    >
+    <div className="fixed inset-0 bg-black/90 flex items-start justify-center z-50 p-4 pt-20 pb-10 overflow-y-auto">
+
       <motion.div
-        initial={{ scale: 0.9, opacity: 0, y: 20 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        onClick={(e) => e.stopPropagation()}
-        className="bg-[#1a1a1a] max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 60 }}
+        transition={{ duration: 0.4 }}
+        className="max-w-4xl w-full bg-[#020617] rounded-2xl p-6 md:p-10 border border-white/10 max-h-[90vh] overflow-y-auto"
       >
-        {/* IMAGE HEADER */}
-        <div className="relative">
+
+        {/* 🔥 HEADER */}
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            {project.title}
+          </h2>
+
+          <p className="text-gray-400 max-w-2xl">
+            A product-focused solution designed to solve real user problems through intuitive UI and performance-driven frontend engineering.
+          </p>
+        </div>
+
+        {/* 🔥 IMAGE */}
+        <div className="mb-10">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-56 object-cover"
+            className="w-full rounded-xl border border-white/10"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
         </div>
 
-        {/* CONTENT */}
-        <div className="p-6 space-y-6">
-
-          {/* TITLE */}
-          <div>
-            <h2 className="text-2xl font-bold text-white">
-              {project.title}
-            </h2>
-            <p className="text-gray-500 text-sm mt-1">
-              Case Study Overview
-            </p>
-          </div>
-
-          {/* PROBLEM */}
-          <div>
-            <h3 className="text-sm text-gray-400 uppercase tracking-wider mb-1">
-              Problem
-            </h3>
-            <p className="text-gray-200 leading-relaxed">
-              {project.problem}
-            </p>
-          </div>
-
-          {/* ROLE / APPROACH */}
-          <div>
-            <h3 className="text-sm text-gray-400 uppercase tracking-wider mb-1">
-              Approach
-            </h3>
-            <p className="text-gray-200 leading-relaxed">
-              {project.role}
-            </p>
-          </div>
-
-          {/* IMPACT */}
-          <div>
-            <h3 className="text-sm text-gray-400 uppercase tracking-wider mb-1">
-              Impact
-            </h3>
-            <p className="text-gray-200 leading-relaxed">
-              {project.impact}
-            </p>
-          </div>
-
-          {/* ACTIONS */}
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
-
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-400 hover:text-green-300 transition font-medium"
-            >
-              Visit Live Project →
-            </a>
-
-            <button
-              onClick={close}
-              className="text-gray-400 hover:text-white transition text-sm"
-            >
-              Close
-            </button>
-          </div>
-
+        {/* 🔥 PROBLEM */}
+        <div className="mb-8">
+          <h3 className="text-white text-xl font-semibold mb-2">
+            Problem
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            {project.problem}
+          </p>
         </div>
+
+        {/* 🔥 APPROACH */}
+        <div className="mb-8">
+          <h3 className="text-white text-xl font-semibold mb-2">
+            Approach
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            I approached this by focusing on usability and clarity. I broke down the user journey, identified friction points, and designed a clean interface that simplifies interaction while maintaining performance and scalability.
+          </p>
+        </div>
+
+        {/* 🔥 SOLUTION */}
+        <div className="mb-8">
+          <h3 className="text-white text-xl font-semibold mb-2">
+            Solution
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            {project.role}
+          </p>
+        </div>
+
+        {/* 🔥 IMPACT */}
+        <div className="mb-10">
+          <h3 className="text-white text-xl font-semibold mb-2">
+            Impact
+          </h3>
+          <p className="text-gray-400 leading-relaxed">
+            {project.impact}
+          </p>
+        </div>
+
+        {/* 🔥 CTA */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href={project.link}
+            target="_blank"
+            className="bg-white text-black px-6 py-3 rounded font-medium hover:bg-gray-200 transition text-center"
+          >
+            View Live Project
+          </a>
+
+          <button
+            onClick={close}
+            className="border border-white/20 px-6 py-3 rounded text-white hover:bg-white/10 transition"
+          >
+            Close
+          </button>
+        </div>
+
       </motion.div>
     </div>
   );
