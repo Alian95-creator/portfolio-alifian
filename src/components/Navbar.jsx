@@ -55,7 +55,7 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           className="text-white font-bold text-lg cursor-pointer tracking-wide"
         >
-          Alifian
+          My Portfolio
         </motion.h1>
 
         {/* 🔥 DESKTOP MENU */}

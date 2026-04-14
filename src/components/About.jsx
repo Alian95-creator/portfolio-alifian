@@ -94,12 +94,16 @@ const About = () => {
             className="text-gray-400 mt-6 leading-relaxed"
             style={{ fontSize: "clamp(0.95rem, 1.2vw, 1.2rem)" }}
           >
-            I am a passionate Frontend Developer with a strong focus on building modern,
-            responsive, and user-friendly web interfaces. I specialize in React,
-            Tailwind CSS, and creating smooth user experiences with clean and scalable code.
-            <br /><br />
-            I enjoy turning ideas into interactive digital products that not only look
-            great but also perform efficiently across different devices.
+            Frontend Developer focused on building fast, intuitive, and product-driven web experiences. <br />
+            I care about more than just code — I focus on how users think, interact, and experience the product.<br></br>
+
+            Instead of just building features, I try to understand : 
+            <br /> <br />
+            - Why users struggle with a problem <br />
+            - How the interface can reduce friction <br />
+            - How to make interactions feel natural and fast <br />
+            <br />
+            I enjoy working on projects where design, UX, and engineering meet — especially in fast-moving environments where iteration matters more than perfection.
           </p>
 
           {/* SOCIAL */}
@@ -203,7 +207,7 @@ const About = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.9 }}
             />
           </motion.div>
         )}
