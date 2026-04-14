@@ -100,17 +100,46 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 md:py-32 px-6 md:px-16">
 
-      {/* 🔥 UPGRADED HEADER */}
-      <div className="mb-10">
-        <h2 className="text-4xl font-bold text-white">
-          What People Say
+      {/* 🔥 PRIMARY CTA (INI YANG PALING PENTING) */}
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Let’s build something impactful 🚀
         </h2>
+
+        <p className="text-gray-400 max-w-xl mx-auto mb-8">
+          I’m open to remote frontend roles, freelance projects, and building
+          meaningful digital products. Let’s collaborate and create something users love.
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="mailto:alifiancandra73@gmail.com"
+            className="bg-white text-black px-6 py-3 rounded font-medium hover:bg-gray-200 transition"
+          >
+            Email Me
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/alifian-candra-7259b5190/"
+            target="_blank"
+            className="border border-white/20 px-6 py-3 rounded text-white hover:bg-white/10 transition"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+
+      {/* 🔥 SOCIAL PROOF HEADER */}
+      <div className="mb-10">
+        <h3 className="text-3xl font-bold text-white">
+          What People Say
+        </h3>
         <p className="text-gray-500 mt-2">
-          Real feedback from users interacting with my projects and portfolio.
+          Feedback from users and visitors interacting with my work.
         </p>
       </div>
 
-      {/* LOGIN */}
+      {/* 🔥 LOGIN */}
       <div className="mb-6 max-w-md">
         {!user ? (
           <button
@@ -134,14 +163,14 @@ export default function Contact() {
 
       <div className="grid md:grid-cols-2 gap-10">
 
-        {/* FORM (UX IMPROVED LABELING) */}
+        {/* 🔥 FORM */}
         <motion.form
           onSubmit={handleSubmit}
           className="bg-[#0f172a] p-6 rounded-xl space-y-4 border border-white/10"
         >
-          <h3 className="text-white font-semibold">
+          <h4 className="text-white font-semibold">
             Leave a short feedback
-          </h3>
+          </h4>
 
           <textarea
             placeholder="What do you think about my work?"
@@ -170,9 +199,8 @@ export default function Contact() {
           </motion.button>
         </motion.form>
 
-        {/* REVIEWS LIST (SOCIAL PROOF STYLE) */}
+        {/* 🔥 REVIEWS LIST */}
         <div className="space-y-4 max-h-[500px] overflow-y-auto">
-
           {reviews.length === 0 && (
             <p className="text-gray-400">
               No feedback yet — be the first to leave one 👀
@@ -189,8 +217,6 @@ export default function Contact() {
                 exit={{ opacity: 0, y: 30 }}
                 transition={{ delay: i * 0.03 }}
               >
-
-                {/* USER */}
                 <div className="flex items-center gap-3">
                   <img
                     src={`https://api.dicebear.com/7.x/initials/svg?seed=${r.name}`}
@@ -207,17 +233,13 @@ export default function Contact() {
                       </span>
                     </div>
 
-                    <p className="text-gray-400 mt-1">
-                      {r.comment}
-                    </p>
-
+                    <p className="text-gray-400 mt-1">{r.comment}</p>
                     <p className="text-yellow-400 mt-1">
                       {"⭐".repeat(r.rating)}
                     </p>
                   </div>
                 </div>
 
-                {/* ACTION */}
                 {user?.uid === r.uid && (
                   <div className="flex gap-4 mt-3 text-sm">
                     <button
@@ -234,11 +256,9 @@ export default function Contact() {
                     </button>
                   </div>
                 )}
-
               </motion.div>
             ))}
           </AnimatePresence>
-
         </div>
       </div>
     </section>

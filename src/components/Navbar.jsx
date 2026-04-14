@@ -9,11 +9,10 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
+    { name: "Work", href: "#projects" },
     { name: "Reviews", href: "#contact" },
   ];
 
-  // 🔥 scroll detection + active section
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -49,17 +48,17 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
+
         {/* 🔥 LOGO */}
         <motion.h1
           whileHover={{ scale: 1.05 }}
           className="text-white font-bold text-lg cursor-pointer tracking-wide"
         >
-          My Portfolio
+          Alifian
         </motion.h1>
 
         {/* 🔥 DESKTOP MENU */}
-        <div className="hidden md:flex gap-8 relative">
+        <div className="hidden md:flex items-center gap-8 relative">
           {menuItems.map((item, i) => (
             <a
               key={i}
@@ -70,12 +69,10 @@ export default function Navbar() {
                   : "text-gray-400 hover:text-white"
               }`}
             >
-              {/* hover text lift */}
               <motion.span whileHover={{ y: -2 }}>
                 {item.name}
               </motion.span>
 
-              {/* 🔥 ACTIVE UNDERLINE (SMOOTH) */}
               {active === item.href && (
                 <motion.div
                   layoutId="underline"
@@ -85,6 +82,14 @@ export default function Navbar() {
               )}
             </a>
           ))}
+
+          {/* 🔥 CTA BUTTON */}
+          <a
+            href="#contact"
+            className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition"
+          >
+            Let’s Talk
+          </a>
         </div>
 
         {/* 🔥 HAMBURGER */}
@@ -106,7 +111,6 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <>
-            {/* backdrop */}
             <motion.div
               className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
               initial={{ opacity: 0 }}
@@ -115,7 +119,6 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
             />
 
-            {/* menu panel */}
             <motion.div
               className="fixed top-0 right-0 w-2/3 h-full bg-[#020617] flex flex-col items-start pt-28 pl-8 space-y-8 text-xl z-40 border-l border-white/10"
               initial={{ x: 300 }}
@@ -138,6 +141,15 @@ export default function Navbar() {
                   {item.name}
                 </motion.a>
               ))}
+
+              {/* 🔥 CTA MOBILE */}
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium"
+              >
+                Let’s Talk
+              </a>
             </motion.div>
           </>
         )}
